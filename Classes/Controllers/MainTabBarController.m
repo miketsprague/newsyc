@@ -34,12 +34,12 @@
         if (![session isAnonymous] && [[HNSessionController sessionController] numberOfSessions] != 1) {
             [self setTitle:[[session user] identifier]];
         } else {
-            [self setTitle:@"Hacker News"];
+            [self setTitle:@"Financier News"];
         }
 
         HNEntryList *homeList = [HNEntryList session:session entryListWithIdentifier:kHNEntryListIdentifierSubmissions];
         home = [[[SubmissionListController alloc] initWithSource:homeList] autorelease];
-        [home setTitle:@"Hacker News"];
+        [home setTitle:@"Financier News"];
         [home setTabBarItem:[[[UITabBarItem alloc] initWithTitle:@"Home" image:[UIImage imageNamed:@"home.png"] tag:0] autorelease]];
         
         HNEntryList *newList = [HNEntryList session:session entryListWithIdentifier:kHNEntryListIdentifierNewSubmissions];
@@ -66,7 +66,9 @@
         [more setTitle:@"More"];
         [more setTabBarItem:[[[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemMore tag:0] autorelease]];
 
-        NSMutableArray *items = [NSMutableArray arrayWithObjects:home, latest, profile, search, more, nil];
+        
+        // remove search for now:
+        NSMutableArray *items = [NSMutableArray arrayWithObjects:home, latest, profile, more, nil];
         [self setViewControllers:items];
         
         [self setDelegate:self];
