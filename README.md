@@ -1,5 +1,3 @@
-## Welcome to news:yc on GitHub! ##
+This is a fork of news:yc to support Financier News, instead!
 
-I should add more info here, but for right now feel free to just browse around. Check out the issues section for things you could try implementing if you want to contribute.
-
-
+I simply changed the base URL and the color scheme.
